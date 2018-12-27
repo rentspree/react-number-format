@@ -779,7 +779,7 @@ class NumberFormat extends React.Component {
 
     //if expectedCaretPosition is not set it means we don't want to Handle keyDown
     //also if multiple characters are selected don't handle
-    if (expectedCaretPosition === undefined || selectionStart !== selectionEnd) {
+    if (expectedCaretPosition === undefined || selectionStart !== selectionEnd || key === 'Backspace') {
       onKeyDown(e);
       return;
     }
