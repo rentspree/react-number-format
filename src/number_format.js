@@ -779,7 +779,7 @@ class NumberFormat extends React.Component {
 
     //if expectedCaretPosition is not set it means we don't want to Handle keyDown
     //also if multiple characters are selected don't handle
-    if (expectedCaretPosition === undefined || selectionStart !== selectionEnd || key === 'Backspace') {
+    if (expectedCaretPosition === undefined || selectionStart !== selectionEnd) {
       onKeyDown(e);
       return;
     }
@@ -810,7 +810,9 @@ class NumberFormat extends React.Component {
       }
     }
 
-
+    if(key === 'Backspace') {
+      onKeyDown(e)
+    }
     if (newCaretPosition !== expectedCaretPosition || expectedCaretPosition < leftBound || expectedCaretPosition > rightBound) {
       e.preventDefault();
       this.setPatchedCaretPosition(el, newCaretPosition, value);
